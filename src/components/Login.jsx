@@ -7,32 +7,40 @@ function Login() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
     // Reset error
     setError('');
+    setIsLoading(true);
 
     // Validate input
     if (!username || !password) {
       setError('Both fields are required');
       console.error('Both fields are required');
-    } else if (password.length < 8) {
+      setIsLoading(false);
+      return;
+    } 
+    if (password.length < 8) {
       setError('Password must be at least 8 characters long.');
       console.error('Password too short');
-    } else if (!/[A-Z]/.test(password) && !/[a-z]/.test(password)) {
+      setIsLoading(false);
+      return;
+    } 
+    if (!/[A-Z]/.test(password) && !/[a-z]/.test(password)) {
       setError('Password must contain at least one uppercase or one lowercase letter.');
       console.error('Password must contain upper or lower case letters');
-    } else {
-      const confirmLogin = window.confirm('Do you allow us to log you in?');
-      if (confirmLogin) {
-        setError('');
-        console.log('Login successful');
-        window.location.href = '/list'; // Redirect to the list view
-      } else {
-        console.log('Login cancelled');
-      }
+      setIsLoading(false);
+      return;
     }
+
+    // Simulate login action
+    setTimeout(() => {
+      console.log('Login successful');
+      // Redirect to the list view
+      window.location.href = '/list'; 
+    }, 1000); // Simulate a network request with a delay
   };
 
   return (
@@ -60,7 +68,9 @@ function Login() {
             {showPassword ? <FaEyeSlash /> : <FaEye />}
           </span>
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? 'Logging in...' : 'Login'}
+        </button>
       </form>
     </div>
   );
