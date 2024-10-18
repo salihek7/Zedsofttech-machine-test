@@ -15,25 +15,7 @@ function Login() {
     setError('');
     setIsLoading(true);
 
-    // Validate input
-    if (!username || !password) {
-      setError('Both fields are required');
-      console.error('Both fields are required');
-      setIsLoading(false);
-      return;
-    } 
-    if (password.length < 8) {
-      setError('Password must be at least 8 characters long.');
-      console.error('Password too short');
-      setIsLoading(false);
-      return;
-    } 
-    if (!/[A-Z]/.test(password) && !/[a-z]/.test(password)) {
-      setError('Password must contain at least one uppercase or one lowercase letter.');
-      console.error('Password must contain upper or lower case letters');
-      setIsLoading(false);
-      return;
-    }
+   
 
     
     setTimeout(() => {
