@@ -14,7 +14,7 @@ function ListView() {
   return (
     <div className="listview-container">
       <h2>Posts</h2>
-      <Link to="/" className="back-to-login">Back to Login</Link> {/* Back to Login Button */}
+      <Link to="/" className="back-to-login">Back to Login</Link> 
       <div className="card-container">
         {posts.map((post) => (
           <div className="card" key={post.id}>

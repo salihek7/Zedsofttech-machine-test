@@ -7,15 +7,15 @@
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
-    background-image: url('/background.jpg'); /* Background image if desired */
+    background-image: url('/background.jpg'); 
     background-size: cover;
     background-position: center;
   }
   
   .login-image {
-    width: 100%; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin-bottom: 10px; /* Spacing below the image */
+    width: 100%; 
+    height: auto; 
+    margin-bottom: 10px; 
   }
   
   .login-container h2 {
@@ -40,7 +40,7 @@
   
   .password-container input {
     flex: 1;
-    padding-right: 40px; /* Space for the eye icon */
+    padding-right: 40px; 
   }
   
   .toggle-password {

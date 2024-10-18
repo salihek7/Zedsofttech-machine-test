@@ -35,12 +35,12 @@ function Login() {
       return;
     }
 
-    // Simulate login action
+    
     setTimeout(() => {
       console.log('Login successful');
-      // Redirect to the list view
+      
       window.location.href = '/list'; 
-    }, 1000); // Simulate a network request with a delay
+    }, 1000); 
   };
 
   return (
